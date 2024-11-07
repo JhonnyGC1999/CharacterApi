@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.dashboard.HomeFragment"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+
+    <Button
+        android:id="@+id/btn_puchame"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:text="Puchame"
+        android:textSize="@dimen/_20sdp"
+        android:textAlignment="center"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/character"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:text="Puchame"
+        android:textSize="@dimen/_20sdp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

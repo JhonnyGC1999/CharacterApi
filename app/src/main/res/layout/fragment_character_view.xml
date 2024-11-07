@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".View.CharacterViewFragment">
+
+    <ImageView
+        android:id="@+id/img_picture"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_45sdp"
+        android:src="@drawable/ic_launcher_background"
+        />
+
+    <TextView
+        android:id="@+id/tv_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Apellido Apellido"
+        android:textSize="@dimen/_22sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_45sdp"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_livedie"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_17sdp"
+            />
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textSize="@dimen/_22sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_15sdp"/>
+
+        <TextView
+            android:id="@+id/tv_race"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Especie"
+            android:textSize="@dimen/_22sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_15sdp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ultima ubicacion conocida:"
+        android:textSize="@dimen/_22sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"/>
+
+    <TextView
+        android:id="@+id/tv_ubication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicacion."
+        android:textSize="@dimen/_22sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origen:"
+        android:textSize="@dimen/_22sdp"
+
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"/>
+
+    <TextView
+        android:id="@+id/tv_origin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origen"
+        android:textSize="@dimen/_22sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"/>
+</LinearLayout>

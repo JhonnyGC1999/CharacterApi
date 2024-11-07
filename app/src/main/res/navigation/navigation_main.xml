@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.jhonny.example.characterapi.View.dashboard.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_activityFragment"
+            app:destination="@id/activityFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activityFragment"
+        android:name="com.jhonny.example.characterapi.View.characterlist.ActivityFragment"
+        android:label="fragment_activity"
+        tools:layout="@layout/fragment_activity" />
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.jhonny.example.characterapi.View.CharacterFragment"
+        android:label="fragment_character"
+        tools:layout="@layout/fragment_character" >
+        <action
+            android:id="@+id/action_characterFragment_to_characterViewFragment"
+            app:destination="@id/characterViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterViewFragment"
+        android:name="com.jhonny.example.characterapi.View.CharacterViewFragment"
+        android:label="fragment_character_view"
+        tools:layout="@layout/fragment_character_view">
+        <argument
+            android:name="characterid"
+            app:argType="integer"
+            />
+    </fragment>
+
+
+
+
+</navigation>
