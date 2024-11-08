@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.jhonny.example.characterapi.Data.remote.models.datacharacter
 import com.jhonny.example.characterapi.Data.remote.service.apiservice
@@ -43,6 +44,7 @@ class CharacterViewFragment : Fragment() {
     }
 
     private fun searchById(id: Int) {
+        binding.load.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val call = getapi.getRetroFit().create(apiservice::class.java).getDataCharacterId(id)
@@ -51,6 +53,7 @@ class CharacterViewFragment : Fragment() {
                     withContext(Dispatchers.Main) {
                         if (allcharacter != null) {
                             render(allcharacter)
+                            binding.load.isVisible = false
                         }
                     }
                 } else {
@@ -70,7 +73,6 @@ class CharacterViewFragment : Fragment() {
         Glide
             .with(binding.root.context)
             .load(character.image)
-            .centerCrop()
             .into(binding.imgPicture)
 
         binding.tvName.text = character.name

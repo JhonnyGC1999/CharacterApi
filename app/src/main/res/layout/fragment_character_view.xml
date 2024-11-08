@@ -7,20 +7,34 @@
     android:orientation="vertical"
     tools:context=".View.CharacterViewFragment">
 
-    <ImageView
-        android:id="@+id/img_picture"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_150sdp"
+
+    <FrameLayout
+        android:layout_marginTop="@dimen/_35sdp"
+        android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_45sdp"
-        android:src="@drawable/ic_launcher_background"
-        />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_picture"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_gravity="center" />
+
+        <ProgressBar
+            android:id="@+id/load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+
 
     <TextView
         android:id="@+id/tv_Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre Apellido Apellido"
+        android:text=""
         android:textSize="@dimen/_22sdp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_45sdp"/>
@@ -42,7 +56,7 @@
             android:id="@+id/tv_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estado"
+            android:text=""
             android:textSize="@dimen/_22sdp"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_15sdp"/>
@@ -51,7 +65,7 @@
             android:id="@+id/tv_race"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Especie"
+            android:text=""
             android:textSize="@dimen/_22sdp"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_15sdp"/>
@@ -70,9 +84,10 @@
         android:id="@+id/tv_ubication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ubicacion."
+        android:text=""
         android:textSize="@dimen/_22sdp"
         android:layout_gravity="center"
+        android:textAlignment="center"
         android:layout_marginTop="@dimen/_15sdp"/>
     <TextView
         android:layout_width="wrap_content"
@@ -87,8 +102,8 @@
         android:id="@+id/tv_origin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Origen"
+        android:text=""
         android:textSize="@dimen/_22sdp"
-        android:layout_gravity="center"
+        android:layout_gravity="center"        android:textAlignment="center"
         android:layout_marginTop="@dimen/_15sdp"/>
 </LinearLayout>
