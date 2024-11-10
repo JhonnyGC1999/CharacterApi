@@ -41,7 +41,6 @@ class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun searchByName(name: String){
-        binding.load.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val call = getapi.getRetroFit().create(apiservice::class.java).getDataCharacterName(name)
@@ -50,7 +49,7 @@ class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
                     if (allcharacter != null) {
                         withContext(Dispatchers.Main) {
                             initRecyclerView(allcharacter.results.toList())
-                            binding.load.isVisible = false
+
                         }
                     }
                 } else {

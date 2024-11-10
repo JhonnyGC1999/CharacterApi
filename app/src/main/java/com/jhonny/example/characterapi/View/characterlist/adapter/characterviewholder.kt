@@ -1,6 +1,7 @@
 package com.jhonny.example.characterapi.View.characterlist.adapter
 
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -20,6 +21,7 @@ class characterviewholder (val binding : ItemCharacterBinding): RecyclerView.Vie
 
         val id = character.id
         binding.tvNombre.text = character.name
+        binding.cbLiveDie.isChecked
         binding.cbLiveDie.isChecked = character.status == "Alive"
         binding.tvEstado.text = character.status
         binding.tvUbicacion.text = character.location.name

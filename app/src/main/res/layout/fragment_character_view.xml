@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".View.CharacterViewFragment">
 
-
     <FrameLayout
         android:layout_marginTop="@dimen/_35sdp"
         android:layout_width="wrap_content"
@@ -51,6 +50,7 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_17sdp"
+            android:clickable="false"
             />
         <TextView
             android:id="@+id/tv_state"

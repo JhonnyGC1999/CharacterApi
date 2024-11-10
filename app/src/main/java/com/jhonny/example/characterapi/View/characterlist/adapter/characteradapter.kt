@@ -2,6 +2,7 @@ package com.jhonny.example.characterapi.View.characterlist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.jhonny.example.characterapi.Data.remote.models.datacharacter
 import com.jhonny.example.characterapi.R
