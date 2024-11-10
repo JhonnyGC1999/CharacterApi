@@ -130,6 +130,8 @@
             app:layout_constraintHorizontal_bias="0.084"
             app:layout_constraintStart_toEndOf="@+id/sm_foto" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
+

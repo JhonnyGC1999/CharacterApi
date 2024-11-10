@@ -32,7 +32,6 @@ class CharacterViewFragment : Fragment() {
         if (characterid != null) {
             searchById(characterid)
         }
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
