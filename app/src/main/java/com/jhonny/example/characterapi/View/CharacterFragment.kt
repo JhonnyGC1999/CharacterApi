@@ -1,35 +1,35 @@
 package com.jhonny.example.characterapi.View
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
-import android.widget.Toast
-import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.jhonny.example.characterapi.Data.remote.models.datacharacter
-import com.jhonny.example.characterapi.Data.remote.service.apiservice
-import com.jhonny.example.characterapi.Data.remote.service.getapi
+import com.jhonny.example.characterapi.View.ViewModel.characterViewModel
 import com.jhonny.example.characterapi.View.characterlist.adapter.characteradapter
 import com.jhonny.example.characterapi.databinding.FragmentCharacterBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
-class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
+
+class CharacterFragment : Fragment(), SearchView.OnQueryTextListener{
 
     private var _binding : FragmentCharacterBinding? = null
     private val binding get() = _binding!!
 
+    private val viewmodel : characterViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        obtenerDatos()
+        //obtenerDatos()
+        viewmodel.onCreateAllCharacter()
         binding.SVSearch.setOnQueryTextListener(this)
+        viewmodel.quotModel.observe(viewLifecycleOwner) {
+             initRecyclerView(it.toList())
+        }
     }
 
     override fun onCreateView(
@@ -40,7 +40,7 @@ class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
         return binding.root
     }
 
-    private fun searchByName(name: String){
+/*    private fun searchByName(name: String){
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val call = getapi.getRetroFit().create(apiservice::class.java).getDataCharacterName(name)
@@ -49,7 +49,6 @@ class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
                     if (allcharacter != null) {
                         withContext(Dispatchers.Main) {
                             initRecyclerView(allcharacter.results.toList())
-
                         }
                     }
                 } else {
@@ -64,9 +63,9 @@ class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
                 }
             }
         }
-    }
+    }*/
 
-    private fun obtenerDatos(){
+/*    private fun obtenerDatos(){
         binding.load.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -90,7 +89,7 @@ class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
                 }
             }
         }
-    }
+    }*/
 
     private fun initRecyclerView(character:List<datacharacter>){
         val adapter = characteradapter()
@@ -102,7 +101,8 @@ class CharacterFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         if (!query.isNullOrEmpty()){
-            searchByName(query)
+            //searchByName(query)
+            viewmodel.searchByName(query)
         }
         return true
     }

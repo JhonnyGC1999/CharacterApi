@@ -1,38 +1,36 @@
 package com.jhonny.example.characterapi.View
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.jhonny.example.characterapi.Data.remote.models.datacharacter
-import com.jhonny.example.characterapi.Data.remote.service.apiservice
-import com.jhonny.example.characterapi.Data.remote.service.getapi
-import com.jhonny.example.characterapi.R
+import com.jhonny.example.characterapi.View.ViewModel.characterViewModel
 import com.jhonny.example.characterapi.databinding.FragmentCharacterViewBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 class CharacterViewFragment : Fragment() {
 
     private var _binding : FragmentCharacterViewBinding? = null
     private val binding get() = _binding!!
+    private val viewmodel : characterViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val characterid = arguments?.getInt("characterid")
 
         if (characterid != null) {
-            searchById(characterid)
+            //searchById(characterid)
+            viewmodel.searchById(characterid)
+            viewmodel.quotModel.observe(viewLifecycleOwner) {
+                render(viewmodel.quotModel.value!![0])
+            }
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +40,7 @@ class CharacterViewFragment : Fragment() {
 
     }
 
-    private fun searchById(id: Int) {
+/*    private fun searchById(id: Int) {
         binding.load.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -66,20 +64,18 @@ class CharacterViewFragment : Fragment() {
                 }
             }
         }
-    }
+    }*/
 
     fun render(character: datacharacter) {
         Glide
             .with(binding.root.context)
-            .load(character.image)
+            .load(character.image )
             .into(binding.imgPicture)
-
         binding.tvName.text = character.name
         binding.cbLivedie.isChecked = character.status == "Alive"
         binding.tvState.text = character.status
         binding.tvUbication.text = character.location.name
         binding.tvRace.text = character.species
         binding.tvOrigin.text = character.location.name
-
     }
 }
