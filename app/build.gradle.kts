@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.androidx.navigation.safeargs)
+    id ("kotlin-kapt")
+
 }
 
 android {
@@ -62,4 +64,11 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.retrofit2.converter.gson)
     implementation (libs.kotlinx.coroutines.android)
+
+    implementation (libs.androidx.room.runtime)
+    annotationProcessor (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
+    kapt (libs.androidx.room.compiler)
+
+
 }

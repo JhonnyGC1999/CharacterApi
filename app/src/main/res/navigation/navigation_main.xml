@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.jhonny.example.characterapi.View.dashboard.HomeFragment"
+        android:name="com.jhonny.example.characterapi.view.dashboard.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/activityFragment"
-        android:name="com.jhonny.example.characterapi.View.characterlist.ActivityFragment"
+        android:name="com.jhonny.example.characterapi.view.characterlist.ActivityFragment"
         android:label="fragment_activity"
         tools:layout="@layout/fragment_activity" />
     <fragment
         android:id="@+id/characterFragment"
-        android:name="com.jhonny.example.characterapi.View.CharacterFragment"
+        android:name="com.jhonny.example.characterapi.view.CharacterFragment"
         android:label="fragment_character"
         tools:layout="@layout/fragment_character" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/characterViewFragment"
-        android:name="com.jhonny.example.characterapi.View.CharacterViewFragment"
+        android:name="com.jhonny.example.characterapi.view.CharacterViewFragment"
         android:label="fragment_character_view"
         tools:layout="@layout/fragment_character_view">
         <argument
