@@ -10,25 +10,26 @@ import com.bumptech.glide.Glide
 import com.jhonny.example.characterapi.data.remote.models.datacharacter
 import com.jhonny.example.characterapi.view.viewmodel.CharacterViewModel
 import com.jhonny.example.characterapi.databinding.FragmentCharacterViewBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint // Para inyectar dependencias
 class CharacterViewFragment : Fragment() {
 
-    private var _binding : FragmentCharacterViewBinding? = null
+    private var _binding: FragmentCharacterViewBinding? = null
     private val binding get() = _binding!!
-    private val viewmodel : CharacterViewModel by viewModels()
+    private val viewmodel: CharacterViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewmodel.setContextViewModel(requireContext())
-            val characterid = arguments?.getInt("characterid")
-            if (characterid != null) {
-                viewmodel.searchById(characterid)
-                viewmodel.quotModel.observe(viewLifecycleOwner) {
-                    render(viewmodel.quotModel.value!![0])
-                }
+        val characterid = arguments?.getInt("characterid")
+        if (characterid != null) {
+            viewmodel.searchById(characterid)
+            viewmodel.quotModel.observe(viewLifecycleOwner) {
+                render(viewmodel.quotModel.value!![0])
             }
         }
+    }
 
 
     override fun onCreateView(
@@ -43,7 +44,7 @@ class CharacterViewFragment : Fragment() {
     fun render(character: datacharacter) {
         Glide
             .with(binding.root.context)
-            .load(character.image )
+            .load(character.image)
             .into(binding.imgPicture)
         binding.tvName.text = character.name
         binding.cbLivedie.isChecked = character.status == "Alive"

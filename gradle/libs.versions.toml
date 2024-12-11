@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.2"
+hiltAndroid = "2.51.1"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -27,9 +28,7 @@ retrofit = "2.9.0"
 roomRuntime = "2.4.3"
 sdpAndroid = "1.1.1"
 
-room_version = "2.6.1"
 
-ksp-version = "1.9.23-1.0.19"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -65,5 +64,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 androidx-navigation-safeargs = {id = "androidx.navigation.safeargs.kotlin", version.ref = "arg"}
+
+
 
 

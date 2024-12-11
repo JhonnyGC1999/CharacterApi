@@ -7,17 +7,18 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+
 interface apiservice {
 
-   @GET("character")
+    @GET("character")
     suspend fun getDataCharacters(): Response<dataresultapi>
 
     @GET("character/{id}")
-    suspend fun getDataCharacterId(@Path("id")id : Int): Response<datacharacter>
+    suspend fun getDataCharacterId(@Path("id") id: Int): Response<datacharacter>
 
     @GET("character/")
     suspend fun getDataCharacterName(@Query("name") name: String): Response<dataresultapi>
 
- /*@GET("character/") Para filtrar mas datos
- suspend fun getDataCharacterName(@Query("name") name: String, @Query("status") status : String): Response<resultapi>*/
+    /*@GET("character/") Para filtrar mas datos
+    suspend fun getDataCharacterName(@Query("name") name: String, @Query("status") status : String): Response<resultapi>*/
 }

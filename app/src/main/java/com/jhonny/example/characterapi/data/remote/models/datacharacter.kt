@@ -9,14 +9,15 @@ data class datacharacter(
     val species: String? = null,
     val gender: String,
     val origin: dataorigin,
-    val location : datalocation,
+    val location: datalocation,
     val image: String,
-){
+) {
     //Evita que se rompa el codigo en caso de que no haya nullo.
     companion object {
-        fun empty() = datacharacter(0,"","","","", dataorigin(""), datalocation(""),"")
+        fun empty() = datacharacter(0, "", "", "", "", dataorigin(""), datalocation(""), "")
     }
 }
 
-fun datacharacter.toRoom() = characterentity(id.toString(), name, status, species, gender, origin.name, location.name, image)
+fun datacharacter.toRoom() =
+    characterentity(id.toString(), name, status, species, gender, origin.name, location.name, image)
 

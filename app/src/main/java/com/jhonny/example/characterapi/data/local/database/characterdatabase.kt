@@ -8,21 +8,22 @@ import com.jhonny.example.characterapi.data.local.dao.characterdao
 import com.jhonny.example.characterapi.data.local.entity.characterentity
 
 
-@Database(entities = [characterentity:: class], version = 1, exportSchema = false)
+@Database(entities = [characterentity::class], version = 1, exportSchema = false)
 abstract class characterdatabase : RoomDatabase() {
-companion object {
-
-    private var database: characterdatabase? = null
-    private const val DATABASE_NAME = "character_database"
-    fun getDatabase(context: Context): characterdatabase {
-        if (database == null) {
-            database = Room.databaseBuilder(context, characterdatabase::class.java, DATABASE_NAME)
-                .fallbackToDestructiveMigration()
-                .allowMainThreadQueries()
-                .build()
+    companion object {
+        private var database: characterdatabase? = null
+        private const val DATABASE_NAME = "character_database"
+        fun getDatabase(context: Context): characterdatabase {
+            if (database == null) {
+                database =
+                    Room.databaseBuilder(context, characterdatabase::class.java, DATABASE_NAME)
+                        .fallbackToDestructiveMigration()
+                        .allowMainThreadQueries()
+                        .build()
+            }
+            return database!!
         }
-        return database!!
     }
-}
+
     abstract fun characterdao(): characterdao
 }
